@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Livewire;
 
-use App\Http\Livewire\ContactForm as LivewireContactForm;
+use App\Livewire\ContactForm as LivewireContactForm;
 use App\Mail\ContactForm;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

@@ -6,14 +6,14 @@
     @endif
     
     <div class="p-8 space-y-4">
-        <form wire:submit.prevent="submit" class="space-y-4" id="updateAppointmentForm">
+        <form wire:submit="submit" class="space-y-4" id="updateAppointmentForm">
             <div class="w-full grid grid-cols-2 gap-16">
                 <div class="flex flex-col">
                     <label for="first_name">
                         {{ __('First Name') }}
                     </label>
                     <input 
-                        wire:model.defer="state.first_name"
+                        wire:model="state.first_name"
                         type="text" 
                         id="first_name" 
                         class="mt-2 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 @error('first_name') border-red-600 @enderror"
@@ -27,7 +27,7 @@
                         {{ __('Last Name') }}
                     </label>
                     <input 
-                        wire:model.defer="state.last_name"
+                        wire:model="state.last_name"
                         type="text" 
                         id="last_name" 
                         class="mt-2 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 @error('last_name') border-red-600 @enderror"
@@ -44,7 +44,7 @@
                         {{ __('Email') }}
                     </label>
                     <input 
-                        wire:model.defer="state.email"
+                        wire:model="state.email"
                         type="email" 
                         id="email" 
                         class="mt-2 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 @error('email') border-red-600 @enderror"
@@ -58,7 +58,7 @@
                         {{ __('Phone') }}
                     </label>
                     <input 
-                        wire:model.defer="state.phone"
+                        wire:model="state.phone"
                         type="text" 
                         id="phone" 
                         class="mt-2 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 @error('phone') border-red-600 @enderror"
@@ -73,13 +73,13 @@
             <label for="default_select">{{ __('Date and time') }}</label>
             <div class="flex space-x-4">
                 <input
-                    wire:model="state.date"
+                    wire:model.live="state.date"
                     type="date" 
                     class="mt-2 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 @error('date') border-red-600 @enderror @error('date_and_time') border-red-600 @enderror"
                     min="{{ date('Y-m-d') }}"
                 >
                 <select 
-                    wire:model.defer="state.time"
+                    wire:model="state.time"
                     class="mt-2 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 @error('date_and_time') border-red-600 @enderror"
                 >
                     @forelse ($times as $time)

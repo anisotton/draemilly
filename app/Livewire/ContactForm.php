@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Mail\ContactForm as MailContactForm;
 use Illuminate\Contracts\Support\Renderable;

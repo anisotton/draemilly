@@ -9,7 +9,7 @@
             {{ __('Choose Date:') }}
         </label>
         <input 
-            wire:model="state.date"
+            wire:model.live="state.date"
             type="date" 
             id="date" 
             class="py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300"
@@ -34,7 +34,7 @@
     </div>
 
     <form 
-        wire:submit.prevent="submit"
+        wire:submit="submit"
         x-show="showForm"
         x-cloak
         class="w-full md:w-2/3 mx-auto mt-16 space-y-4"
@@ -62,7 +62,7 @@
                         {{ __('First Name') }}
                     </label>
                     <input 
-                        wire:model.defer="state.first_name"
+                        wire:model="state.first_name"
                         type="text" 
                         id="first_name" 
                         class="mt-2 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 @error('first_name') border-red-600 @enderror"
@@ -76,7 +76,7 @@
                         {{ __('Last Name') }}
                     </label>
                     <input 
-                        wire:model.defer="state.last_name"
+                        wire:model="state.last_name"
                         type="text" 
                         id="last_name" 
                         class="mt-2 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 @error('last_name') border-red-600 @enderror"
@@ -92,7 +92,7 @@
                         {{ __('Email') }}
                     </label>
                     <input 
-                        wire:model.defer="state.email"
+                        wire:model="state.email"
                         type="email" 
                         id="email" 
                         class="mt-2 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 @error('email') border-red-600 @enderror"
@@ -106,7 +106,7 @@
                         {{ __('Phone') }}
                     </label>
                     <input 
-                        wire:model.defer="state.phone"
+                        wire:model="state.phone"
                         type="text" 
                         id="phone" 
                         class="mt-2 py-1 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 @error('phone') border-red-600 @enderror"

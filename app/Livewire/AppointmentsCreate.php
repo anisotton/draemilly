@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Contracts\Actions\CreatesAppointment;
 use App\Models\Appointment;
@@ -8,7 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
 use Livewire\Component;
 
-class BookAppointment extends Component
+class AppointmentsCreate extends Component
 {
     public array $times = [
         '09:00 AM',
@@ -21,35 +21,31 @@ class BookAppointment extends Component
         '04:00 PM',
     ];
 
-    public array $availableTimes = [];
+    public array $notAvailableTimes = [];
 
     public array $state = [];
 
     public function mount(): void
     {
         $this->state['date'] = date('Y-m-d');
+        $this->state['time'] = '09:00 AM';
 
-        $this->availableTimes = Appointment::query()
+        $this->notAvailableTimes = Appointment::query()
             ->whereDay('scheduled_at', Carbon::parse($this->state['date']))
             ->get('scheduled_at')
             ->map(function ($item) {
                 return $item->scheduled_at->format('H:i A');
             })->toArray();
     }
-
+    
     public function updatedStateDate(): void
     {
-        $this->availableTimes = Appointment::query()
+        $this->notAvailableTimes = Appointment::query()
             ->whereDay('scheduled_at', Carbon::parse($this->state['date']))
             ->get('scheduled_at')
             ->map(function ($item) {
                 return $item->scheduled_at->format('H:i A');
             })->toArray();
-    }
-
-    public function setTime(string $time): void
-    {
-        $this->state['time'] = $time;
     }
 
     public function submit(CreatesAppointment $creator): void
@@ -58,11 +54,11 @@ class BookAppointment extends Component
 
         $this->reset('state');
 
-        session()->flash('appointmentCreated', __('Appointment successfully created. Please be there 15 minutes before the scheduled appointment.'));
+        session()->flash('appointmentCreated', __('Appointment successfully created.'));
     }
 
     public function render(): Renderable
     {
-        return view('livewire.book-appointment');
+        return view('livewire.appointments-create');
     }
 }
