@@ -1,23 +1,23 @@
 <x-guest-layout>
     <!-- start:Topbar -->
     <div class="w-full py-3 border-b">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 pl-4 pr-14 2xl:pl-0 2xl:pr-0">
-            <ul class="flex flex-col md:flex-row items-center justify-center space-y-1 md:space-y-0 md:space-x-6 text-sm text-gray-400">
+        <div class="flex flex-col items-center justify-between pl-4 mx-auto space-y-4 max-w-7xl md:flex-row md:space-y-0 pr-14 2xl:pl-0 2xl:pr-0">
+            <ul class="flex flex-col items-center justify-center space-y-1 text-sm text-gray-400 md:flex-row md:space-y-0 md:space-x-6">
                 <li class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <span>{{ __('Krunska 77, Belgrade') }}</span>
                 </li>
                 <li class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     <span>{{ __('contact@example.com') }}</span>
                 </li>
                 <li class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     <span>{{ __('011 4159211') }}</span>
@@ -42,12 +42,12 @@
             </ul>
         </div>
 
-        <a 
-            href="{{ route('login') }}" 
-            class="absolute top-3 right-4 text-gray-500 hover:text-primary" 
+        <a
+            href="{{ route('login') }}"
+            class="absolute text-gray-500 top-3 right-4 hover:text-primary"
             title="Sign In"
         >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
             </svg>
         </a>
@@ -55,112 +55,112 @@
     <!-- end:Topbar -->
 
     <!-- start:Menu -->
-    <div class="w-full bg-white border-b-2 border-primary py-4 sticky top-0 z-10">
+    <div class="sticky top-0 z-10 w-full py-4 bg-white border-b-2 border-primary">
         <div
-            x-data="{ showMenu: false }" 
-            class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 2xl:px-0"
+            x-data="{ showMenu: false }"
+            class="flex flex-col items-center justify-between px-4 mx-auto max-w-7xl lg:flex-row 2xl:px-0"
         >
-            <div class="w-full lg:w-auto flex items-center justify-between">
-                <a 
-                    href="{{ route('welcome') }}" 
+            <div class="flex items-center justify-between w-full lg:w-auto">
+                <a
+                    href="{{ route('welcome') }}"
                     class="flex items-center space-x-2"
                 >
-                    <img 
-                        src="{{ asset('/img/logo.png') }}" 
+                    <img
+                        src="{{ asset('/img/logo.png') }}"
                         class="w-9 h-9"
-                        alt="{{ __('Logo') }}" 
+                        alt="{{ __('Logo') }}"
                     >
-                    <span class="text-lg text-primary font-bold">
+                    <span class="text-lg font-bold text-primary">
                         {{ config('app.name', 'Laravel') }}
                     </span>
                 </a>
-                <button 
+                <button
                     @click="showMenu = !showMenu"
                     class="lg:hidden text-primary"
                 >
-                    <span 
-                        x-show="!showMenu" 
+                    <span
+                        x-show="!showMenu"
                         title="Open Menu"
                         x-cloak
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>
                     </span>
-                    <span 
-                        x-show="showMenu" 
+                    <span
+                        x-show="showMenu"
                         title="Close Menu"
                         x-cloak
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </span>
                 </button>
             </div>
-            <ul 
-                class="flex flex-col lg:flex-row items-center justify-center space-y-2 lg:space-y-0 lg:space-x-2 text-lg font-bold py-2 lg:py-0"
+            <ul
+                class="flex flex-col items-center justify-center py-2 space-y-2 text-lg font-bold lg:flex-row lg:space-y-0 lg:space-x-2 lg:py-0"
                 :class="showMenu ? 'flex' : 'hidden lg:flex'"
                 x-cloak
             >
                 <li>
-                    <a 
-                        href="{{ route('welcome') }}" 
-                        class="text-primary hover:text-gray-100 hover:bg-primary px-2 py-1 rounded transition duration-100" 
+                    <a
+                        href="{{ route('welcome') }}"
+                        class="px-2 py-1 transition duration-100 rounded text-primary hover:text-gray-100 hover:bg-primary"
                         title="{{ __('Home') }}"
                     >
                         {{ __('Home') }}
                     </a>
                 </li>
                 <li>
-                    <a 
-                        href="{{ route('about') }}" 
-                        class="text-primary hover:text-gray-100 hover:bg-primary px-2 py-1 rounded transition duration-100" 
+                    <a
+                        href="{{ route('about') }}"
+                        class="px-2 py-1 transition duration-100 rounded text-primary hover:text-gray-100 hover:bg-primary"
                         title="{{ __('About') }}"
                     >
                         {{ __('About') }}
                     </a>
                 </li>
                 <li>
-                    <a 
-                        href="{{ route('services') }}" 
-                        class="text-primary hover:text-gray-100 hover:bg-primary px-2 py-1 rounded transition duration-100" 
+                    <a
+                        href="{{ route('services') }}"
+                        class="px-2 py-1 transition duration-100 rounded text-primary hover:text-gray-100 hover:bg-primary"
                         title="{{ __('Services') }}"
                     >
                         {{ __('Services') }}
                     </a>
                 </li>
                 <li>
-                    <a 
-                        href="{{ route('gallery') }}" 
-                        class="text-primary hover:text-gray-100 hover:bg-primary px-2 py-1 rounded transition duration-100" 
+                    <a
+                        href="{{ route('gallery') }}"
+                        class="px-2 py-1 transition duration-100 rounded text-primary hover:text-gray-100 hover:bg-primary"
                         title="{{ __('Gallery') }}"
                     >
                         {{ __('Gallery') }}
                     </a>
                 </li>
                 <li>
-                    <a 
-                        href="{{ route('team') }}" 
-                        class="text-primary hover:text-gray-100 hover:bg-primary px-2 py-1 rounded transition duration-100" 
+                    <a
+                        href="{{ route('team') }}"
+                        class="px-2 py-1 transition duration-100 rounded text-primary hover:text-gray-100 hover:bg-primary"
                         title="{{ __('Team') }}"
                     >
                         {{ __('Team') }}
                     </a>
                 </li>
                 <li>
-                    <a 
-                        href="{{ route('contact') }}" 
-                        class="text-primary hover:text-gray-100 hover:bg-primary px-2 py-1 rounded transition duration-100" 
+                    <a
+                        href="{{ route('contact') }}"
+                        class="px-2 py-1 transition duration-100 rounded text-primary hover:text-gray-100 hover:bg-primary"
                         title="{{ __('Contact') }}"
                     >
                         {{ __('Contact') }}
                     </a>
                 </li>
                 <li class="pl-4">
-                    <a 
-                        href="{{ route('bookAppointment') }}" 
-                        class="text-primary hover:text-gray-100 hover:bg-primary px-2 py-1.5 border border-primary text-sm uppercase rounded transition duration-100" 
+                    <a
+                        href="{{ route('bookAppointment') }}"
+                        class="text-primary hover:text-gray-100 hover:bg-primary px-2 py-1.5 border border-primary text-sm uppercase rounded transition duration-100"
                         title="{{ __('Book an Appointment') }}"
                     >
                         {{ __('Book an Appointment') }}
@@ -178,9 +178,9 @@
     <footer class="bg-gray-800">
         <div class="border-b-2 border-gray-100">
 
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
+            <div class="grid grid-cols-1 gap-8 py-8 mx-auto max-w-7xl md:grid-cols-3">
                 <div class="flex flex-col items-center text-gray-100">
-                    <div class="w-2/3 text-center border-b-2 border-dashed border-gray-100 pb-2">
+                    <div class="w-2/3 pb-2 text-center border-b-2 border-gray-100 border-dashed">
                         <span class="text-xl capitalize">{{ __('We are open on:') }}</span>
                     </div>
                     <div class="flex flex-col items-center justify-center mt-4">
@@ -199,7 +199,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col items-center text-gray-100">
-                    <div class="w-2/3 text-center border-b-2 border-dashed border-gray-100 pb-2">
+                    <div class="w-2/3 pb-2 text-center border-b-2 border-gray-100 border-dashed">
                         <span class="text-xl capitalize">{{ __('Our Location:') }}</span>
                     </div>
                     <div class="flex flex-col items-center justify-center mt-4">
@@ -212,24 +212,24 @@
                     </div>
                 </div>
                 <div class="flex flex-col items-center text-gray-100">
-                    <div class="w-2/3 text-center border-b-2 border-dashed border-gray-100 pb-2">
+                    <div class="w-2/3 pb-2 text-center border-b-2 border-gray-100 border-dashed">
                         <span class="text-xl capitalize">{{ __('Get In Touch:') }}</span>
                     </div>
                     <div class="flex flex-col items-center justify-center mt-4">
-                        <div class="space-x-2 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <div class="flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                             <span>{{ __('contact@example.com') }}</span>
                         </div>
-                        <div class="space-x-2 flex items-center space-y-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <div class="flex items-center space-x-2 space-y-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
                             <span>{{ __('011 4159211') }}</span>
                         </div>
                     </div>
-                    <ul class="flex items-center justify-center space-x-4 mt-4">
+                    <ul class="flex items-center justify-center mt-4 space-x-4">
                         <li>
                             <a href="https://www.facebook.com/" title="{{ __('Facebook') }}" target="_blank">
                                 <svg class="w-4 h-4" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M374.245,285.825l14.104,-91.961l-88.233,0l0,-59.677c0,-25.159 12.325,-49.682 51.845,-49.682l40.117,0l0,-78.291c0,0 -36.408,-6.214 -71.214,-6.214c-72.67,0 -120.165,44.042 -120.165,123.775l0,70.089l-80.777,0l0,91.961l80.777,0l0,222.31c16.197,2.542 32.798,3.865 49.709,3.865c16.911,0 33.512,-1.323 49.708,-3.865l0,-222.31l74.129,0Z" style="fill:#1877f2;fill-rule:nonzero;"/></svg>
@@ -249,8 +249,8 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto">
-            <ul class="flex flex-col md:flex-row items-center justify-center text-gray-100 py-4 space-y-2 md:space-y-0 md:space-x-8">
+        <div class="mx-auto max-w-7xl">
+            <ul class="flex flex-col items-center justify-center py-4 space-y-2 text-gray-100 md:flex-row md:space-y-0 md:space-x-8">
                 <li class="hover:underline">
                     <a href="{{ route('welcome') }}">
                         {{ __('Home') }}
@@ -288,7 +288,7 @@
                 </li>
             </ul>
 
-            <div class="flex flex-col items-center justify-center text-gray-500 text-sm py-4">
+            <div class="flex flex-col items-center justify-center py-4 text-sm text-gray-500">
                 <div>
                     <span>{{ __('Created by:') }}</span>
                     <a href="https://vojislavd.com" class="text-primary hover:underline" target="_blank">
