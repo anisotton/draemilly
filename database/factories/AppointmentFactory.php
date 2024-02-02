@@ -17,11 +17,13 @@ class AppointmentFactory extends Factory
     public function definition()
     {
         return [
-            'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName(),
-            'email' => $this->faker->email(),
-            'phone' => $this->faker->phoneNumber(),
-            'scheduled_at' => $this->faker->dateTimeBetween(now()->subDays(7), now()->addDays(7))
+            'patient_id' => \App\Models\Patient::factory(),
+            'date' => $this->faker->date(),
+            'start_time' => $this->faker->time(),
+            'end_time' => $this->faker->time(),
+            'reason' => $this->faker->sentence,
+            'procedure' => $this->faker->word,
+            'return_date' => $this->faker->date(),
         ];
     }
 }
