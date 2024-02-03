@@ -24,25 +24,29 @@ class PatientResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nome')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('mail')
-                    ->required()
+                    ->label('Email')
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('date_birth')
+                    ->label('Data de nascimento')
                     ->required(),
                 Forms\Components\TextInput::make('phone')
+                    ->label('Telefone')
                     ->tel()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('cpf')
+                    ->label('CPF')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('address')
-                    ->required()
+                    ->label('Endereço')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('how_find_us')
-                    ->required()
+                    ->label('Como nos encontrou?')
                     ->maxLength(255),
             ]);
     }
@@ -52,20 +56,18 @@ class PatientResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('phone')
+                    ->label('Telefone')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('mail')
+                    ->label('Email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('date_birth')
-                    ->date()
+                    ->label('Data de nascimento')
+                    ->date('d/m/Y')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('phone')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('cpf')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('address')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('how_find_us')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

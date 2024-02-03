@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('mail');
+            $table->string('mail')->nullable();
             $table->date('date_birth');
             $table->string('phone');
             $table->string('cpf')->unique(); // CPF is specific to Brazilian users, consider adjusting for internationalization
-            $table->string('address');
-            $table->string('how_find_us');
+            $table->string('address')->nullable();
+            $table->string('how_find_us')->nullable();
             $table->timestamps();
         });
     }
