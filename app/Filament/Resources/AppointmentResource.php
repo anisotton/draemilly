@@ -6,6 +6,7 @@ use App\Filament\Resources\AppointmentResource\Pages;
 use App\Filament\Resources\AppointmentResource\RelationManagers;
 use App\Models\Appointment;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -19,27 +20,36 @@ class AppointmentResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $title = 'Custom Page Title';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('patient_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('patient_id')
+                    ->label('Nome')
+                    ->relationship('patient', 'name')
+                    ->searchable()
+                    ->required(),
                 Forms\Components\DatePicker::make('date')
+                    ->label('Data da consulta')
                     ->required(),
-                Forms\Components\TextInput::make('start_time')
+                Forms\Components\TimePicker::make('start_time')
+                    ->label('Hora de inicio')
                     ->required(),
-                Forms\Components\TextInput::make('end_time')
+                Forms\Components\TimePicker::make('end_time')
+                    ->label('Hora de fim')
                     ->required(),
                 Forms\Components\Textarea::make('reason')
                     ->required()
+                    ->label('Motivo do agendamento')
                     ->maxLength(65535)
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('procedure')
+                    ->label('Procedimento a ser realizado')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\DatePicker::make('return_date'),
+                Forms\Components\DatePicker::make('Data de retorno'),
             ]);
     }
 
@@ -47,23 +57,24 @@ class AppointmentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('patient_id')
+                Tables\Columns\TextColumn::make('patient.name')
+                    ->label('Nome')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('date')
-                    ->date()
+                    ->label('Data')
+                    ->date('d/m/Y')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('start_time'),
-                Tables\Columns\TextColumn::make('end_time'),
+                Tables\Columns\TextColumn::make('start_time')
+                    ->label('Hora de inicio'),
+                Tables\Columns\TextColumn::make('end_time')
+                    ->label('Hora de fim'),
                 Tables\Columns\TextColumn::make('procedure')
+                    ->label('Procedimento')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('return_date')
-                    ->date()
+                    ->date('d/m/Y')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
